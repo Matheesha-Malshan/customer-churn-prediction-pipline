@@ -16,4 +16,3 @@ def data_flow() -> pd.DataFrame:
 if __name__ == "__main__":
     df = data_flow()
     print(df)
-
