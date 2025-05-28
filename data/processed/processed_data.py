@@ -1,33 +1,22 @@
 import yaml
 from prefect import task, flow
 import pandas as pd
-from sklearn.ensemble import IsolationForest
+import numpy as np
+
 
 with open("config.yaml", "r") as file:
     config = yaml.safe_load(file)
 
 @task
-def read_filtered_data(data_path: str) -> pd.DataFrame:
+def read_data(data_path: str) -> pd.DataFrame:
     return pd.read_csv(data_path)
 
-@task
-def remove_outliers(filtered_data: pd.DataFrame) -> pd.DataFrame:
-    iso_forest = IsolationForest(contamination=0.1, random_state=42)
-    iso_pred = iso_forest.fit_predict(filtered_data)
-    mask = iso_pred == 1
-    cleaned_data = filtered_data[mask]
-    return cleaned_data
-
 @flow
-def clean_data_flow(data_path: str) -> pd.DataFrame:
-    df = read_filtered_data(data_path)
-    cleaned_df = remove_outliers(df)
-    return cleaned_df
+def procced_data_flow() -> pd.DataFrame:
+    return read_data(data_path=config["data"]["balanced_data"])
 
 if __name__ == "__main__":
-    data_path = config["data"]["filltered_data"]
-    cleaned = clean_data_flow(data_path)
-    print(cleaned)
-
+    df = procced_data_flow()
+    print(df)
 
 
