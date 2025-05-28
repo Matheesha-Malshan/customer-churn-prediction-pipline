@@ -1,0 +1,5 @@
+data:
+  data_path: C:\Users\HP\OneDrive\Desktop\New folder\customer-churn-prediction-pipline\WA_Fn-UseC_-Telco-Customer-Churn.csv
+  filltered_data: C:\Users\HP\OneDrive\Desktop\New folder\customer-churn-prediction-pipline\filltered_data.csv
+  cleaned_data: C:\Users\HP\OneDrive\Desktop\New folder\customer-churn-prediction-pipline\cleaned_data.csv
+  balanced_data: C:\Users\HP\OneDrive\Desktop\New folder\customer-churn-prediction-pipline\imbalnced_handle_data.csv
