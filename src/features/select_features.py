@@ -15,7 +15,7 @@ def correlation_matrix(filtered_data: pd.DataFrame) -> pd.DataFrame:
     corr_matrix = filtered_data.corr(method='spearman')
     return corr_matrix
 
-@flow
+@task
 def correlation_data_flow(data_path: str) -> pd.DataFrame:
     df = read_filltered_data(data_path)
     corr_matrix = correlation_matrix(df)

@@ -21,7 +21,7 @@ def smote(X_cleaned: pd.DataFrame) -> pd.DataFrame:
     balanced_data=pd.concat([ X_resampled,y_resampled],axis=1)
     return balanced_data
 
-@flow
+@task
 def smote_flow(data_path: str) -> pd.DataFrame:
     df = read_cleaned_data(data_path)
     balanced_df = smote(df)
