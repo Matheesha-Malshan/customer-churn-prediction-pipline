@@ -20,7 +20,7 @@ def remove_outliers(filtered_data: pd.DataFrame) -> pd.DataFrame:
     cleaned_data = filtered_data[mask]
     return cleaned_data
 
-@flow
+@task
 def clean_data_flow(data_path: str) -> pd.DataFrame:
     df = read_filtered_data(data_path)
     cleaned_df = remove_outliers(df)
